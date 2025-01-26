@@ -1,6 +1,7 @@
 // Armazenar os nomes em um Array, adicionar e listar os amigos com uma iteração de array.
 
 let listaAmigos = [];
+let listaNaoSorteados = [];
 let listaSorteados = [];
 
 let indice = Math.floor(Math.random() * listaAmigos.length)
@@ -24,6 +25,7 @@ function adicionarAmigo(){
         alert('É necessário digitar um nome. Por favor, tente novamente.');
     }
 }
+
 
 
 function exibirLista(){
@@ -70,8 +72,10 @@ function gerarSorteio(amigoAtual){
     do{
         let indice = Math.floor(Math.random() * listaAmigos.length);
         sorteado = listaAmigos[indice];
-        console.log(sorteado);
-        
+
+        if (sorteado === amigoAtual){
+            
+        }
     }while (sorteado === amigoAtual || listaSorteados.includes(sorteado));
 
     
