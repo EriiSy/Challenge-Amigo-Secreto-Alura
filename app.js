@@ -26,6 +26,9 @@ function adicionarAmigo(){
     }else{
         alert('É necessário digitar um nome. Por favor, tente novamente.');
     }
+    if (listaAmigos.length > 1) {
+        resultado('');
+    }
 }
 
 
@@ -51,6 +54,20 @@ function resultado(mensagem){
 function desabilitarBotao(tag){
     let desabilitar = document.getElementById(tag).setAttribute('disabled', 'disabled');
     let corBotao = document.getElementById(tag).style.backgroundColor = '#d3d3d3';
+
+}
+
+
+function verificarLista(){
+    if (listaAmigos.length === 0 ){
+        alert('A lista de amigos está vazia');
+        return;
+    }
+    if (listaAmigos.length === 1){
+        resultado('Por favor, adicione mais um amigo para continuar');
+        return;
+    }
+    return true;
 }
 
 
@@ -67,13 +84,7 @@ function verificarSorteio(){
 
 
 function gerarSorteio(){
-    if (listaAmigos.length === 0 ){
-        alert('A lista de amigos está vazia');
-        return;
-    }
-
-    if (listaAmigos.length === 1){
-        resultado('Por favor, adicione mais um amigo para continuar');
+    if (!verificarLista(listaAmigos.length)){
         return;
     }
 
@@ -115,6 +126,9 @@ function revelarAmigo() {
 document.getElementById('revelar').style.display = 'none';
 
 function sortearAmigo(){
+    if (!verificarLista(listaAmigos.length)){
+        return;
+    }
     gerarSorteio();
     verificarSorteio();
     document.getElementById('revelar').style.display = 'block';
