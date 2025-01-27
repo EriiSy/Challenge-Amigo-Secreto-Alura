@@ -160,3 +160,21 @@ ul {
 .button-draw:hover {
     background-color: var(--color-button-hover);
 }
+
+.button-reveal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    padding: 20px 40px;
+    color: var(--color-white);
+    background-color: var(--color-button);
+    font-size: 16px;
+    margin-top: 20px;
+    margin-left: 15%;
+}
+
+.button-reveal:hover {
+    background-color: var(--color-button-hover);
+}
+

@@ -95,10 +95,13 @@ function gerarSorteio(){
     return sorteado;
 }
 
+document.getElementById('revelar').style.display = 'none';
 
 function sortearAmigo(){
     gerarSorteio();
     verificarSorteio();
+    document.getElementById('revelar').style.display = 'block';
+
 }
 
 
