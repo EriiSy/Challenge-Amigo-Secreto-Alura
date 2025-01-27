@@ -48,6 +48,10 @@ function resultado(mensagem){
     resultado.textContent = mensagem;
 }
 
+function desabilitarBotao(tag){
+    let desabilitar = document.getElementById(tag).setAttribute('disabled', 'disabled');
+    let corBotao = document.getElementById(tag).style.backgroundColor = '#d3d3d3';
+}
 
 
 function verificarSorteio(){
@@ -56,9 +60,7 @@ function verificarSorteio(){
      if (listaSorteados.length == listaAmigos.length){
         ultimaMensagem = `Este é o último sorteio. O amigo sorteado 
         foi: ${listaSorteados[listaSorteados.length-1]}`;
-        let desabilitarSorteio = document.getElementById('sortear').setAttribute('disabled',
-             'disabled');
-        let corBotao = document.getElementById('sortear').style.backgroundColor = '#d3d3d3';
+        desabilitarBotao('sortear');
         return;
     }
 }
@@ -116,7 +118,6 @@ function sortearAmigo(){
     gerarSorteio();
     verificarSorteio();
     document.getElementById('revelar').style.display = 'block';
-
 }
 
 
