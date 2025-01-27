@@ -1,7 +1,7 @@
 // Armazenar os nomes em um Array, adicionar e listar os amigos com uma iteração de array.
 
 let listaAmigos = [];
-let listaNaoSorteados = [];
+let listaNaoSorteados = [];;
 let listaSorteados = [];
 
 let indice = Math.floor(Math.random() * listaAmigos.length)
@@ -18,6 +18,7 @@ function adicionarAmigo(){
     let adicionar = document.querySelector('input').value;
     if (adicionar.trim() !== '' ){  // Verificar se há ou não um nome inserido independente do tipo.  
         listaAmigos.push(adicionar);
+        listaNaoSorteados.push(adicionar);
         console.log(listaAmigos);
         limparCampo();
         exibirLista();
@@ -48,7 +49,22 @@ function resultado(mensagem){
 }
 
 
-function gerarSorteio(amigoAtual){
+
+function verificarSorteio(){
+
+     // Verificando se todos foram sorteados.
+     if (listaSorteados.length == listaAmigos.length){
+        resultado(`Este é o último sorteio. 
+            O amigo sorteado foi: ${listaSorteados[listaSorteados.length-1]}`);
+        let desabilitarSorteio = document.getElementById('sortear').setAttribute('disabled',
+             'disabled');
+        let corBotao = document.getElementById('sortear').style.backgroundColor = '#d3d3d3';
+        return;
+    }
+}
+
+
+function gerarSorteio(){
     if (listaAmigos.length === 0 ){
         alert('A lista de amigos está vazia');
         return;
@@ -59,37 +75,30 @@ function gerarSorteio(amigoAtual){
         return;
     }
 
-    // Verificando se todos foram sorteados.
-    if (listaSorteados.length == listaAmigos.length){
-        console.log('Todos já foram sorteados');
-        resultado('Todos já foram sorteados');
-        return;
-    }
-
-
-    let sorteado;
+    let sorteado = null;
+    let indice = null;
     // O loop abaixo irá garantir que não haja sorteios duplicados.
     do{
-        let indice = Math.floor(Math.random() * listaAmigos.length);
-        sorteado = listaAmigos[indice];
+        indice = Math.floor(Math.random() * listaAmigos.length);
+        sorteado = listaNaoSorteados[indice];
+        console.log(`indice:${indice}`);
 
-        if (sorteado === amigoAtual){
-            
-        }
-    }while (sorteado === amigoAtual || listaSorteados.includes(sorteado));
-
+    }while (sorteado === listaAmigos[listaSorteados.length] 
+        || sorteado === undefined);
     
-    //Adiciona o amigo sorteado na lista dos sorteados.
+    listaNaoSorteados.splice(indice, 1);
     listaSorteados.push(sorteado);
 
     resultado(`Amigo sorteado: ${sorteado}`);
     console.log(listaSorteados);
+
+    return sorteado;
 }
 
 
 function sortearAmigo(){
-    let amigoAtual = document.querySelector('input').value;
-    gerarSorteio(amigoAtual);
+    gerarSorteio();
+    verificarSorteio();
 }
 
 
