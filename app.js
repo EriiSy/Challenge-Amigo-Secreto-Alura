@@ -3,6 +3,8 @@
 let listaAmigos = [];
 let listaNaoSorteados = [];;
 let listaSorteados = [];
+let revelado = false;
+let ultimaMensagem = '';
 
 let indice = Math.floor(Math.random() * listaAmigos.length)
 
@@ -11,7 +13,6 @@ function limparCampo(){
     adicionar = document.querySelector('input');
     adicionar.value = '';
 }
-
 
 function adicionarAmigo(){
 
@@ -42,7 +43,6 @@ function exibirLista(){
 }
 
 
-
 function resultado(mensagem){
     const resultado = document.getElementById('resultado');
     resultado.textContent = mensagem;
@@ -54,8 +54,8 @@ function verificarSorteio(){
 
      // Verificando se todos foram sorteados.
      if (listaSorteados.length == listaAmigos.length){
-        resultado(`Este é o último sorteio. 
-            O amigo sorteado foi: ${listaSorteados[listaSorteados.length-1]}`);
+        ultimaMensagem = `Este é o último sorteio. O amigo sorteado 
+        foi: ${listaSorteados[listaSorteados.length-1]}`;
         let desabilitarSorteio = document.getElementById('sortear').setAttribute('disabled',
              'disabled');
         let corBotao = document.getElementById('sortear').style.backgroundColor = '#d3d3d3';
@@ -89,10 +89,25 @@ function gerarSorteio(){
     listaNaoSorteados.splice(indice, 1);
     listaSorteados.push(sorteado);
 
-    resultado(`Amigo sorteado: ${sorteado}`);
-    console.log(listaSorteados);
-
+    document.getElementById('revelar').style.display = 'block';
+    amigoSorteado = sorteado;
     return sorteado;
+}
+
+function revelarAmigo() {
+    if (!revelado) {
+        if (listaSorteados.length == listaAmigos.length) {
+            resultado(ultimaMensagem);
+        } else {
+            resultado(`Amigo sorteado: ${amigoSorteado}`);
+        }
+        document.getElementById('revelar').textContent = 'Ocultar amigo';
+        revelado = true;
+    } else {
+        resultado('');
+        document.getElementById('revelar').textContent = 'Revelar amigo';
+        revelado = false;
+    }
 }
 
 document.getElementById('revelar').style.display = 'none';
