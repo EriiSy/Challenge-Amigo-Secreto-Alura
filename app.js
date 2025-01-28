@@ -151,6 +151,7 @@ function reiniciarSorteio(){
     alternarVisiblidade('sortear', true);
     alternarVisiblidade('revelar', false);
     alternarVisiblidade('reiniciar', false);
+    alternarVisiblidade('parar', false);
     resultado('');
     exibirLista();
     console.log('Reiniciando...');
@@ -171,6 +172,9 @@ function pararSorteio(){
     habilitarBotao('sortear');
     alternarVisiblidade('reiniciar', false);
     alternarVisiblidade('revelar', false);
+    alternarVisiblidade('adicionar', true);
+    alternarVisiblidade('amigo', true);
+    alternarVisiblidade('subtitulo', true);
     limparCampo();
     resultado('');
 }
@@ -184,6 +188,7 @@ function revelarAmigo() {
             alternarVisiblidade('proximo', true);    
         }else{
             alternarVisiblidade('reiniciar', true);
+            habilitarBotao('reiniciar');
             alternarVisiblidade('parar', true);
             console.log('Ativando botão parar');
         }
@@ -226,6 +231,9 @@ function sortearAmigo(){
     if (!verificarLista()){
         return;
     }
+    alternarVisiblidade('adicionar', false);
+    alternarVisiblidade('amigo', false);
+    alternarVisiblidade('subtitulo', false);
     gerarSorteio();
     verificarSorteio();
     alternarVisiblidade('revelar', !revelado);
