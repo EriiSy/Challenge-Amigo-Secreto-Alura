@@ -187,6 +187,15 @@ ul {
     font-size: 16px;
 }
 
+.button-stop {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px 40px;
+    color: var(--color-white);
+    background-color: #007bff;
+    font-size: 16px;
+}
 
 .button-draw img {
     margin-right: 40px;
@@ -202,6 +211,9 @@ ul {
     background-color: var(--color-button-hover);
 }
 .button-reveal:hover{
+    background-color: var(--color-button-hover);
+}
+.button-stop:hover{
     background-color: var(--color-button-hover);
 }
 

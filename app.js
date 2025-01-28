@@ -48,6 +48,11 @@ function exibirLista(){
 
 }
 
+function apagarLista(){
+    let apagar = document.getElementById('listaAmigos');
+    apagar.innerHTML = '';
+    listaAmigos = [];
+}
 
 function resultado(mensagem){
     const resultado = document.getElementById('resultado');
@@ -95,17 +100,13 @@ function verificarSorteio(){
         foi: ${listaSorteados[listaSorteados.length-1]}`;
         alternarVisiblidade('sortear', false)
         alternarVisiblidade('proximo', false);
-        alternarVisiblidade('reiniciar', true);
         return;
     }
 }
 
-
-
 function gerarSorteio(){
     let sorteado = null;
     let indice = null;
-    let maxTentativas = listaNaoSorteados.length;
     let tentativa = 0;
 
     if (listaNaoSorteados.length === 0) {
@@ -124,16 +125,16 @@ function gerarSorteio(){
         // Após alguns reinicios, de alguma maneira que ainda não sei o sorteio entra em loop infinito.
         // Para evitar isso, o código abaixo irá verificar se o número de tentativas
         // é maior que o número de amigos na lista. Se for, o código irá parar.
-        if (tentativa > maxTentativas){
+        if (tentativa > 50){
             alert('Tentativas de Combinações Excedidas. Por favor, finalize o Sorteio');
             console.error('Erro: Tentativas excessivas, não há opções válidas para o sorteio!');
             return null;
-        }
-        
-
+        } 
+    
     }while (sorteado === listaAmigos[listaSorteados.length] 
         || sorteado === undefined);
-    
+        
+    console.log('Tentivas: ' + tentativa);
     listaNaoSorteados.splice(indice, 1);
     listaSorteados.push(sorteado);
 
@@ -141,7 +142,6 @@ function gerarSorteio(){
     amigoSorteado = sorteado;
     return sorteado;
 }   
-
 
 function reiniciarSorteio(){
     listaSorteados = [];
@@ -159,6 +159,23 @@ function reiniciarSorteio(){
     console.log(listaAmigos);
 }
 
+function pararSorteio(){
+    listaSorteados = [];
+    listaNaoSorteados = [];
+    revelado = false;
+    ultimaMensagem = '';
+    apagarLista();
+    alternarVisiblidade('listaSorteio', false);
+    alternarVisiblidade('parar', false);
+    alternarVisiblidade('sortear', true);
+    habilitarBotao('sortear');
+    alternarVisiblidade('reiniciar', false);
+    alternarVisiblidade('revelar', false);
+    limparCampo();
+    resultado('');
+}
+
+
 function revelarAmigo() {
     if (revelado) {
         resultado('');
@@ -166,7 +183,9 @@ function revelarAmigo() {
             habilitarBotao('proximo');
             alternarVisiblidade('proximo', true);    
         }else{
-            habilitarBotao('reiniciar');
+            alternarVisiblidade('reiniciar', true);
+            alternarVisiblidade('parar', true);
+            console.log('Ativando botão parar');
         }
         document.getElementById('revelar').textContent = 'Revelar amigo';
         revelado = false;
@@ -186,6 +205,7 @@ function revelarAmigo() {
 alternarVisiblidade('proximo', false);
 alternarVisiblidade('revelar', revelado);
 alternarVisiblidade('reiniciar', false);
+alternarVisiblidade('parar', false);
 alternarVisiblidade('listaSorteio', false);
 
 
@@ -193,10 +213,11 @@ function proximoSorteio(){
     // avança para o próximo sorteio
     if(listaAmigos.length === listaSorteados.length){   
         alternarVisiblidade('proximo', false);
-        habilitarBotao('reiniciar');
+        console.log('desativando o botão de próximo sorteio');
         return;
     }
 
+    console.log('A lista ainda não foi completada');
     alternarVisiblidade('proximo', false);
     habilitarBotao('sortear');
 }
