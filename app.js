@@ -103,17 +103,33 @@ function verificarSorteio(){
 
 
 function gerarSorteio(){
-    if (!verificarLista()){
-        return;
-    }
-
     let sorteado = null;
     let indice = null;
+    let maxTentativas = listaNaoSorteados.length;
+    let tentativa = 0;
+
+    if (listaNaoSorteados.length === 0) {
+        console.error('Erro: Não há mais amigos para sortear!');
+        return null; // Sai da função se a lista estiver vazia
+    }
+
     // O loop abaixo irá garantir que não haja sorteios duplicados.
     do{
-        indice = Math.floor(Math.random() * listaAmigos.length);
+        indice = Math.floor(Math.random() * listaNaoSorteados.length);
         sorteado = listaNaoSorteados[indice];
         console.log(`indice:${indice}`);
+
+        tentativa++;
+
+        // Após alguns reinicios, de alguma maneira que ainda não sei o sorteio entra em loop infinito.
+        // Para evitar isso, o código abaixo irá verificar se o número de tentativas
+        // é maior que o número de amigos na lista. Se for, o código irá parar.
+        if (tentativa > maxTentativas){
+            alert('Tentativas de Combinações Excedidas. Por favor, finalize o Sorteio');
+            console.error('Erro: Tentativas excessivas, não há opções válidas para o sorteio!');
+            return null;
+        }
+        
 
     }while (sorteado === listaAmigos[listaSorteados.length] 
         || sorteado === undefined);
@@ -124,7 +140,8 @@ function gerarSorteio(){
     alternarVisiblidade('revelar', revelado); 
     amigoSorteado = sorteado;
     return sorteado;
-}
+}   
+
 
 function reiniciarSorteio(){
     listaSorteados = [];
