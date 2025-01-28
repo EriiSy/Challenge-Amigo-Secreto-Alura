@@ -159,12 +159,17 @@ function gerarSorteio(){
 function reiniciarSorteio(){
     listaSorteados = [];
     listaNaoSorteados = [...listaAmigos];
+    //Funções Desativadas
     alterarEstadoDoBotao('reiniciar', false);
-    alterarEstadoDoBotao('sortear', true);
-    alternarVisiblidade('sortear', true);
     alternarVisiblidade('revelar', false);
     alternarVisiblidade('reiniciar', false);
     alternarVisiblidade('parar', false);
+    
+    //Funções Ativadas
+    alterarEstadoDoBotao('sortear', true);
+    alternarVisiblidade('sortear', true);
+    alternarVisiblidade('embaralhar', true);
+    
     resultado('');
     exibirLista();
     console.log('Reiniciando...');
@@ -179,15 +184,21 @@ function pararSorteio(){
     revelado = false;
     ultimaMensagem = '';
     apagarLista();
+    //Funções Desativadas
     alternarVisiblidade('listaSorteio', false);
     alternarVisiblidade('parar', false);
-    alternarVisiblidade('sortear', true);
-    alterarEstadoDoBotao('sortear', true);
     alternarVisiblidade('reiniciar', false);
     alternarVisiblidade('revelar', false);
+    
+    //Funções Ativadas
+    alternarVisiblidade('sortear', true);
+    alterarEstadoDoBotao('sortear', true);
     alternarVisiblidade('adicionar', true);
     alternarVisiblidade('amigo', true);
     alternarVisiblidade('subtitulo', true);
+    alternarVisiblidade('limpar', true);
+    alternarVisiblidade('embaralhar', true);
+    alternarVisiblidade('remover', true);
     limparCampo();
     resultado('');
 }
@@ -220,6 +231,7 @@ function revelarAmigo() {
     }
 }
 
+// Inicialização - ainda pretendo melhorar isso... 
 alternarVisiblidade('proximo', false);
 alternarVisiblidade('revelar', revelado);
 alternarVisiblidade('reiniciar', false);
@@ -239,6 +251,10 @@ function sortearAmigo(){
     if (!verificarLista()){
         return;
     }
+    alternarVisiblidade('limpar', false);
+    alternarVisiblidade('embaralhar', false);
+    alternarVisiblidade('remover', false);
+
     alternarVisiblidade('adicionar', false);
     alternarVisiblidade('amigo', false);
     alternarVisiblidade('subtitulo', false);
@@ -257,7 +273,6 @@ function removerAmigo(){
     listaNaoSorteados.pop();
     exibirLista();
     console.log('Removendo...');
-    alert('O último amigo foi removido com sucesso!');
 }
 
 function embaralharLista(){
@@ -268,8 +283,8 @@ function embaralharLista(){
         alert('Adicione mais amigos para embaralhar a lista');
         return;
     }
-    
-    listaAmigos.sort(() => Math.random() - 0.5);
+
+    listaAmigos.sort(() => Math.random() - 1);
     exibirLista();
     console.log('Embaralhando...');
     alert('A lista de amigos foi embaralhada com sucesso!');
