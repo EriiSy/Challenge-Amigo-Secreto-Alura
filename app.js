@@ -59,15 +59,16 @@ function resultado(mensagem){
     resultado.textContent = mensagem;
 }
 
-function habilitarBotao(tag){
-    let habilitar = document.getElementById(tag).removeAttribute('disabled');
-    let corBotao = document.getElementById(tag).style.backgroundColor = '#007bff';
-}
-
-function desabilitarBotao(tag){
-    let desabilitar = document.getElementById(tag).setAttribute('disabled', 'disabled');
-    let corBotao = document.getElementById(tag).style.backgroundColor ='rgb(0, 69, 71)';
-    let corDaFonte = document.getElementById(tag).style.color = '#FFFFFF';
+function alterarEstadoDoBotao(tag, valor){
+    const botao = document.getElementById(tag);
+     if(valor){
+        botao.removeAttribute('disabled');
+        botao.style.backgroundColor = '#007bff';
+     }else{
+        botao.setAttribute('disabled', 'disabled');
+        botao.style.backgroundColor ='rgb(0, 69, 71)';
+        botao.style.color = '#FFFFFF';
+     }
 }
 
 function alternarVisiblidade(tag, valor){
@@ -146,8 +147,8 @@ function gerarSorteio(){
 function reiniciarSorteio(){
     listaSorteados = [];
     listaNaoSorteados = [...listaAmigos];
-    desabilitarBotao('reiniciar');
-    habilitarBotao('sortear');
+    alterarEstadoDoBotao('reiniciar', false);
+    alterarEstadoDoBotao('sortear', true);
     alternarVisiblidade('sortear', true);
     alternarVisiblidade('revelar', false);
     alternarVisiblidade('reiniciar', false);
@@ -169,7 +170,7 @@ function pararSorteio(){
     alternarVisiblidade('listaSorteio', false);
     alternarVisiblidade('parar', false);
     alternarVisiblidade('sortear', true);
-    habilitarBotao('sortear');
+    alterarEstadoDoBotao('sortear', true);
     alternarVisiblidade('reiniciar', false);
     alternarVisiblidade('revelar', false);
     alternarVisiblidade('adicionar', true);
@@ -184,12 +185,12 @@ function revelarAmigo() {
     if (revelado) {
         resultado('');
         if (listaSorteados.length != listaAmigos.length) {
-            habilitarBotao('proximo');
+            alterarEstadoDoBotao('proximo', true);
             alternarVisiblidade('parar', true);
             alternarVisiblidade('proximo', true);    
         }else{
             alternarVisiblidade('reiniciar', true);
-            habilitarBotao('reiniciar');
+            alterarEstadoDoBotao('reiniciar', true);
             alternarVisiblidade('parar', true);
             console.log('Ativando botão parar');
         }
@@ -203,7 +204,7 @@ function revelarAmigo() {
             resultado(`Amigo sorteado: ${amigoSorteado}`);
         }
         document.getElementById('revelar').textContent = 'Ocultar amigo';
-        desabilitarBotao('proximo');
+        alterarEstadoDoBotao('proximo', false);
         revelado = true;
     }
 }
