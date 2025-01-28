@@ -12,6 +12,7 @@ let indice = Math.floor(Math.random() * listaAmigos.length)
 function limparCampo(){
     adicionar = document.querySelector('input');
     adicionar.value = '';
+    console.log('Limpando...');
 }
 
 function adicionarAmigo(){
@@ -20,6 +21,8 @@ function adicionarAmigo(){
     if (adicionar.trim() !== '' ){  // Verificar se há ou não um nome inserido independente do tipo.  
         listaAmigos.push(adicionar);
         listaNaoSorteados.push(adicionar);
+        console.log('Adicionando...');
+        alternarVisiblidade('listaSorteio', true);
         console.log(listaAmigos);
         limparCampo();
         exibirLista();
@@ -51,10 +54,23 @@ function resultado(mensagem){
     resultado.textContent = mensagem;
 }
 
+function habilitarBotao(tag){
+    let habilitar = document.getElementById(tag).removeAttribute('disabled');
+    let corBotao = document.getElementById(tag).style.backgroundColor = '#007bff';
+}
+
 function desabilitarBotao(tag){
     let desabilitar = document.getElementById(tag).setAttribute('disabled', 'disabled');
-    let corBotao = document.getElementById(tag).style.backgroundColor = '#d3d3d3';
+    let corBotao = document.getElementById(tag).style.backgroundColor ='rgb(0, 69, 71)';
+    let corDaFonte = document.getElementById(tag).style.color = '#FFFFFF';
+}
 
+function alternarVisiblidade(tag, valor){
+    if (valor){
+        document.getElementById(tag).style.display = 'block';
+    }else{
+        document.getElementById(tag).style.display = 'none';
+    }
 }
 
 
@@ -72,19 +88,22 @@ function verificarLista(){
 
 
 function verificarSorteio(){
-
+     
      // Verificando se todos foram sorteados.
      if (listaSorteados.length == listaAmigos.length){
         ultimaMensagem = `Este é o último sorteio. O amigo sorteado 
         foi: ${listaSorteados[listaSorteados.length-1]}`;
-        desabilitarBotao('sortear');
+        alternarVisiblidade('sortear', false)
+        alternarVisiblidade('proximo', false);
+        alternarVisiblidade('reiniciar', true);
         return;
     }
 }
 
 
+
 function gerarSorteio(){
-    if (!verificarLista(listaAmigos.length)){
+    if (!verificarLista()){
         return;
     }
 
@@ -102,36 +121,75 @@ function gerarSorteio(){
     listaNaoSorteados.splice(indice, 1);
     listaSorteados.push(sorteado);
 
-    document.getElementById('revelar').style.display = 'block';
+    alternarVisiblidade('revelar', revelado); 
     amigoSorteado = sorteado;
     return sorteado;
 }
 
+function reiniciarSorteio(){
+    listaSorteados = [];
+    listaNaoSorteados = [...listaAmigos];
+    desabilitarBotao('reiniciar');
+    habilitarBotao('sortear');
+    alternarVisiblidade('sortear', true);
+    alternarVisiblidade('revelar', false);
+    alternarVisiblidade('reiniciar', false);
+    resultado('');
+    exibirLista();
+    console.log('Reiniciando...');
+    console.log(listaSorteados);
+    console.log(listaNaoSorteados);
+    console.log(listaAmigos);
+}
+
 function revelarAmigo() {
-    if (!revelado) {
+    if (revelado) {
+        resultado('');
+        if (listaSorteados.length != listaAmigos.length) {
+            habilitarBotao('proximo');
+            alternarVisiblidade('proximo', true);    
+        }else{
+            habilitarBotao('reiniciar');
+        }
+        document.getElementById('revelar').textContent = 'Revelar amigo';
+        revelado = false;
+        alternarVisiblidade('revelar', false);
+    } else {
         if (listaSorteados.length == listaAmigos.length) {
             resultado(ultimaMensagem);
         } else {
             resultado(`Amigo sorteado: ${amigoSorteado}`);
         }
         document.getElementById('revelar').textContent = 'Ocultar amigo';
+        desabilitarBotao('proximo');
         revelado = true;
-    } else {
-        resultado('');
-        document.getElementById('revelar').textContent = 'Revelar amigo';
-        revelado = false;
     }
 }
 
-document.getElementById('revelar').style.display = 'none';
+alternarVisiblidade('proximo', false);
+alternarVisiblidade('revelar', revelado);
+alternarVisiblidade('reiniciar', false);
+alternarVisiblidade('listaSorteio', false);
+
+
+function proximoSorteio(){
+    // avança para o próximo sorteio
+    if(listaAmigos.length === listaSorteados.length){   
+        alternarVisiblidade('proximo', false);
+        habilitarBotao('reiniciar');
+        return;
+    }
+
+    alternarVisiblidade('proximo', false);
+    habilitarBotao('sortear');
+}
 
 function sortearAmigo(){
-    if (!verificarLista(listaAmigos.length)){
+    if (!verificarLista()){
         return;
     }
     gerarSorteio();
     verificarSorteio();
-    document.getElementById('revelar').style.display = 'block';
+    alternarVisiblidade('revelar', !revelado);
+    desabilitarBotao('sortear');
 }
-
-

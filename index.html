@@ -37,9 +37,17 @@
                     <img src="assets/play_circle_outline.png" alt="Ícone para sortear">
                     Sortear amigo
                 </button>
+                <button class="button-restart" id="reiniciar" onclick="reiniciarSorteio()" aria-label="Resetar lista de amigos">
+                    <img src="assets/restart_circle.png" alt="Ícone para reiniciar">
+                    Reiniciar 
+                </button>
+                <button class='button-next' id='proximo' onclick='proximoSorteio()' aria-label='Próximo amigo'>
+                    <img src='assets/next_circle.png' alt='Ícone para próximo amigo'>
+                    Próximo
+                </button>
             </div>
 
-            <h2 class="section-title">Ordem de Sorteio</h2>
+            <h2 class="section-title" id="listaSorteio">Ordem de Sorteio</h2>
             
             <ul id="listaAmigos" class="name-list" aria-labelledby="listaAmigos" role="list"></ul>
 
