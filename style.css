@@ -18,37 +18,45 @@
 body {
     height: 100vh;
     background-color: var(--color-primary);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 .main-content {
     display: flex;
     flex-direction: column;
-    height: 100%;
-    width: 100%;
-}
-
-/* Banner */
-.header-banner {
-    flex: 40%;
-    display: flex;
     justify-content: center;
     align-items: center;
-    padding: 40px 0 0;
+    min-height: 100vh;
+    background-color: #58969e;
+    padding: 20px;
 }
 
-/* Seção de entrada */
+/* Banner e input*/
+.header-banner, 
 .input-section {
-    flex: 60%;
-    background-color: var(--color-secondary);
-    border: 1px solid #000;
-    border-radius: 32px 32px 0 0;
+    flex: 100%; 
+    padding: 24px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    text-align: center;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-banner {
+    margin-bottom: 20px;
+}
+
+
+
+/* Seção de entrada */
+.section-container{
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
     width: 100%;
 }
 
@@ -70,6 +78,36 @@ body {
     text-align: center;
 }
 
+/* Estilo para a seção de explicação */
+.explanation-section {
+    background-color: var(--color-secondary);
+    border: 1px solid #000;
+    border-radius: 16px;
+    padding: 20px;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+.explanation-text {
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    color: var(--color-text);
+    margin-bottom: 10px;
+}
+
+.explanation-list {
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    color: var(--color-text);
+    padding-left: 20px;
+}
+
+.explanation-list li {
+    margin-bottom: 5px;
+}
+
 /* Contêineres de entrada e botão */
 .input-wrapper {
     display: flex;
@@ -88,7 +126,7 @@ body {
 }
 
 .button-container {
-    width: 300px;
+    width: 100px;
     justify-content: center;
     align-items: center;
     margin-top: 30px;
@@ -201,19 +239,7 @@ ul {
     margin-right: 40px;
 }
 
-.button-draw:hover {
-    background-color: var(--color-button-hover);
-}
-.button-next:hover{
-    background-color: var(--color-button-hover);
-}
-.button-restart:hover{
-    background-color: var(--color-button-hover);
-}
-.button-reveal:hover{
-    background-color: var(--color-button-hover);
-}
-.button-stop:hover{
+button:hover {
     background-color: var(--color-button-hover);
 }
 

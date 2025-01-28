@@ -185,6 +185,7 @@ function revelarAmigo() {
         resultado('');
         if (listaSorteados.length != listaAmigos.length) {
             habilitarBotao('proximo');
+            alternarVisiblidade('parar', true);
             alternarVisiblidade('proximo', true);    
         }else{
             alternarVisiblidade('reiniciar', true);
@@ -216,15 +217,10 @@ alternarVisiblidade('listaSorteio', false);
 
 function proximoSorteio(){
     // avança para o próximo sorteio
-    if(listaAmigos.length === listaSorteados.length){   
-        alternarVisiblidade('proximo', false);
-        console.log('desativando o botão de próximo sorteio');
-        return;
-    }
-
-    console.log('A lista ainda não foi completada');
     alternarVisiblidade('proximo', false);
-    habilitarBotao('sortear');
+    alternarVisiblidade('sortear', true);
+    alternarVisiblidade('parar', true);
+
 }
 
 function sortearAmigo(){
@@ -237,5 +233,5 @@ function sortearAmigo(){
     gerarSorteio();
     verificarSorteio();
     alternarVisiblidade('revelar', !revelado);
-    desabilitarBotao('sortear');
+    alternarVisiblidade('sortear', false);
 }
