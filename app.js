@@ -192,6 +192,7 @@ function pararSorteio(){
     alternarVisiblidade('parar', false);
     alternarVisiblidade('reiniciar', false);
     alternarVisiblidade('revelar', false);
+    alternarVisiblidade('proximo', false);
     
     //Funções Ativadas
     alternarVisiblidade('sortear', true);
