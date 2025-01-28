@@ -29,7 +29,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #58969e;
+    background-color: #d8d8d8;
     padding: 20px;
 }
 
@@ -66,7 +66,7 @@ body {
     font-family: "Merriweather", serif;
     font-weight: 900;
     font-style: italic;
-    color: var(--color-white);
+    color: var(--color-primary);
 }
 
 .section-title {
