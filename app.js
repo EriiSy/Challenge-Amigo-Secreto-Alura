@@ -101,6 +101,8 @@ function verificarLista(){
     if (listaAmigos.length === 1){
         resultado('Por favor, adicione mais um amigo para continuar');
         return;
+    } else{
+        resultado('');
     }
     return true;
 }
