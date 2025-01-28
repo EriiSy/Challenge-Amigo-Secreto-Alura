@@ -16,9 +16,25 @@ function limparCampo(){
 }
 
 function adicionarAmigo(){
-
     let adicionar = document.querySelector('input').value;
-    if (adicionar.trim() !== '' ){  // Verificar se há ou não um nome inserido independente do tipo.  
+
+    if (listaAmigos.length > 1) {
+        resultado('');
+    }
+    // Verificar se o nome contém caracteres inválidos 
+    if (!/^[a-zA-Z\s]+$/.test(adicionar)) {
+        alert('O nome deve conter apenas letras e espaços. Por favor, tente novamente.');
+        return;
+    }
+    
+    let tamanhoNome = (adicionar.length > 25 || adicionar.length < 2) ? true : false;
+    // Verificar se o nome não é muito longo 
+    if (tamanhoNome) {
+        alert('O nome deve conter entre 2 e 25 caracteres. Por favor, tente novamente.');
+        return;
+    }
+    
+    if (adicionar.trim() !== '' && !listaAmigos.includes(adicionar) ){  // Verificar se há ou não um nome inserido independente do tipo.  
         listaAmigos.push(adicionar);
         listaNaoSorteados.push(adicionar);
         console.log('Adicionando...');
@@ -26,12 +42,12 @@ function adicionarAmigo(){
         console.log(listaAmigos);
         limparCampo();
         exibirLista();
+    }else if(listaAmigos.includes(adicionar)){
+        alert('Por favor, diferencie os nomes para evitar maus entendidos.');
     }else{
         alert('É necessário digitar um nome. Por favor, tente novamente.');
     }
-    if (listaAmigos.length > 1) {
-        resultado('');
-    }
+    
 }
 
 
