@@ -41,6 +41,10 @@ body {
     background-color: #ffffff;
     border: 1px solid #ddd;
     text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
     border-radius: 16px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -125,11 +129,15 @@ body {
     font-size: 16px;
 }
 
-.button-container {
-    width: 100px;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
+.button-random, 
+.button-remove,
+.button-clear {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 16px;
+    cursor: pointer;
+    background-color: #083055;
+    color: #FFFFFF;
 }
 
 /* Estilos de entrada de texto */
@@ -183,7 +191,10 @@ ul {
 }
 
 /* Botões */
-
+.button-next,
+.button-stop,
+.button-restart,
+.button-draw,
 .button-reveal {
     display: flex;
     align-items: center;
@@ -195,50 +206,6 @@ ul {
 }
 
 
-.button-draw {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    padding: 10px 40px;
-    color: var(--color-white);
-    background-color:#007bff;
-    font-size: 16px;
-}
-
-.button-next {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    padding: 10px 40px;
-    color: var(--color-white);
-    background-color: #007bff;
-    font-size: 16px;
-}
-
-.button-restart {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    padding: 10px 40px;
-    color: var(--color-white);
-    background-color: #007bff;
-    font-size: 16px;
-}
-
-.button-stop {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    padding: 10px 40px;
-    color: var(--color-white);
-    background-color: #007bff;
-    font-size: 16px;
-}
-
-.button-draw img {
-    margin-right: 40px;
-}
-
 button:hover {
     background-color: var(--color-button-hover);
 }
@@ -246,22 +213,14 @@ button:hover {
 .button-container {
     display: flex;
     align-items: center;
-    justify-content: space-between; 
+    justify-content: center; 
     width: 100%; 
     padding: 10px 20px;
     margin: 20px 0;
-    border-radius: 16px;
-}
-
-.button-container button{
-    display: flex;
-    align-items: center;
-    width: 100%;
-    padding: 10px 40px;
     color: '#007bff';
     background-color: '#007bff';
     font-size: 16px;
-    margin-top: 20px;
+    border-radius: 16px;
 }
 
 button img {
