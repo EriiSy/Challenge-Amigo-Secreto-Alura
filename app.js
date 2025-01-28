@@ -42,6 +42,7 @@ function adicionarAmigo(){
         console.log(listaAmigos);
         limparCampo();
         exibirLista();
+        resultado('');
     }else if(listaAmigos.includes(adicionar)){
         alert('Por favor, diferencie os nomes para evitar maus entendidos.');
     }else{
@@ -267,6 +268,7 @@ function sortearAmigo(){
 }
 
 function removerAmigo(){
+    resultado('');
     if (listaAmigos.length === 0){
         alert('A lista de amigos está vazia');
         return;
@@ -278,6 +280,7 @@ function removerAmigo(){
 }
 
 function embaralharLista(){
+    resultado('');
     if (listaAmigos.length === 0){
         alert('A lista de amigos está vazia');
         return;
@@ -293,6 +296,7 @@ function embaralharLista(){
 }
 
 function limparLista(){
+    resultado('');
     if (listaAmigos.length === 0){
         alert('A lista de amigos está vazia');
         return;
