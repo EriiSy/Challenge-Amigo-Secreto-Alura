@@ -50,8 +50,6 @@ function adicionarAmigo(){
     
 }
 
-
-
 function exibirLista(){
     let listar = document.getElementById('listaAmigos');
     listar.innerHTML = '';
@@ -95,7 +93,6 @@ function alternarVisiblidade(tag, valor){
     }
 }
 
-
 function verificarLista(){
     if (listaAmigos.length === 0 ){
         alert('A lista de amigos está vazia');
@@ -107,7 +104,6 @@ function verificarLista(){
     }
     return true;
 }
-
 
 function verificarSorteio(){
      
@@ -196,7 +192,6 @@ function pararSorteio(){
     resultado('');
 }
 
-
 function revelarAmigo() {
     if (revelado) {
         resultado('');
@@ -251,4 +246,44 @@ function sortearAmigo(){
     verificarSorteio();
     alternarVisiblidade('revelar', !revelado);
     alternarVisiblidade('sortear', false);
+}
+
+function removerAmigo(){
+    if (listaAmigos.length === 0){
+        alert('A lista de amigos está vazia');
+        return;
+    }
+    listaAmigos.pop();
+    listaNaoSorteados.pop();
+    exibirLista();
+    console.log('Removendo...');
+    alert('O último amigo foi removido com sucesso!');
+}
+
+function embaralharLista(){
+    if (listaAmigos.length === 0){
+        alert('A lista de amigos está vazia');
+        return;
+    }else if (listaAmigos.length === 1){
+        alert('Adicione mais amigos para embaralhar a lista');
+        return;
+    }
+    
+    listaAmigos.sort(() => Math.random() - 0.5);
+    exibirLista();
+    console.log('Embaralhando...');
+    alert('A lista de amigos foi embaralhada com sucesso!');
+}
+
+function limparLista(){
+    if (listaAmigos.length === 0){
+        alert('A lista de amigos está vazia');
+        return;
+    }
+    listaAmigos = [];
+    listaNaoSorteados = [];
+    listaSorteados = [];
+    exibirLista();
+    console.log('Limpando...');
+    alert('A lista de amigos foi limpa com sucesso!');
 }
