@@ -169,7 +169,7 @@ function reiniciarSorteio(){
     alterarEstadoDoBotao('sortear', true);
     alternarVisiblidade('sortear', true);
     alternarVisiblidade('embaralhar', true);
-    
+
     resultado('');
     exibirLista();
     console.log('Reiniciando...');
@@ -298,7 +298,8 @@ function limparLista(){
     listaAmigos = [];
     listaNaoSorteados = [];
     listaSorteados = [];
-    exibirLista();
+    apagarLista();
+    alternarVisiblidade('listaSorteio', false);
     console.log('Limpando...');
     alert('A lista de amigos foi limpa com sucesso!');
 }
