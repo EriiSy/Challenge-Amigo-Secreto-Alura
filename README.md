@@ -97,6 +97,7 @@ function adicionarAmigo(){
 ```
 
 ### 🎲 Gerar Sorteio
+Essa foi de longe um dos maiores desafios que tive pois queria aplicar um sorteio cujo o sorteado não pudesse sortear ele próprio e isso...custou uns dias, mas valeu a pena hehe.
 ```javascript
 function gerarSorteio(){
     let sorteado = null;
@@ -123,6 +124,31 @@ function gerarSorteio(){
 }
 
 ```
+## Funcionalidades Adicionais
+
+### Funções
+
+1. **Limpar Lista** 🧹
+2. **Limpar Campo de Entrada** ✏️
+3. **Apagar Lista de Amigos** 🗑️
+4. **Remover Amigo** 👋
+5. **Reiniciar Sorteio** 🔄
+6. **Parar Sorteio** ⏹️
+7. **Próximo Sorteio** ⏭️
+8. **Revelar Amigo** 👀
+9. **Embaralhar Lista** 🔀
+
+### Verificações
+
+1. **Nome Válido** ✅
+2. **Comprimento do Nome** 🆎
+3. **Nome Duplicado** 🔁
+4. **Lista Vazia** 📭
+5. **Lista com Apenas um Amigo** 👤
+6. **Tentativas Excessivas no Sorteio** ❗
+7. **Lista de Não Sorteados Vazia** 🚫
+8. **Todos os Amigos Sorteados** 🎉
+
 
 ### 📽 Demonstração em Vídeo:
 https://github.com/user-attachments/assets/b23a5f4f-b03b-4985-92c3-e482523907bb
