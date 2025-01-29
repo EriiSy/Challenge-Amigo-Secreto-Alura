@@ -13,18 +13,19 @@
 ---
 
 ## 📌Índice
-1. [📖Descrição do Projeto](#descricao-do-projeto)
+1. [📖Descrição do Projeto](#descrição-do-projeto)
 2. [🚀Status do Projeto](#status-do-projeto)
-3. [⚡Funcionalidades e Demonstração da Aplicação](#funcionalidades-e-demonstracao-da-aplicacao)
+3. [⚡Funcionalidades e Demonstração da Aplicação](#funcionalidades-e-demonstração-da-aplicação)
 4. [🧩Funcionalidades Adicionais](#funcionalidades-adicionais)
 5. [🛠Tecnologias Utilizadas](#tecnologias-utilizadas)
 6. [🤝Pessoas Contribuidoras](#pessoas-contribuidoras)
 7. [👨‍💻Pessoas Desenvolvedoras do Projeto](#pessoas-desenvolvedoras-do-projeto)
-8. [📜Licença](#licenca)
+8. [📜Licença](#licença)
 
 ---
 
 ## 📖Descrição do Projeto
+
 O **Amigo Secreto** é um **Challenge** gerenciado pela +ONE com o prazo de entrega entre **15/01/25 a 18/03/25**  utilizando-se de **HTML, CSS e JavaScript**.
 A ideia é fazer com que o participante teste a sua a lógica de programação - parte esta fundamental na área supracitada - aprendida durante a jornada +ONE 2025.
 
