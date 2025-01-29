@@ -49,7 +49,7 @@ A ideia é fazer com que o participante teste a sua a lógica de programação -
 
 ## ⚡ Funcionalidades e Demonstração da Aplicação
 
-### 📝 Adicionar Amigo
+### ➕ Adicionar Amigo
 ```javascript
 function adicionarAmigo(){
     let adicionar = document.querySelector('input').value;
@@ -81,6 +81,21 @@ function adicionarAmigo(){
 }
 ```
 
+### 📝 Exibir Lista de Amigos
+ 
+```javascript
+ function exibirLista(){
+  // Irá pegar o array listaAmigos 
+  let listar = document.getElementById('listaAmigos');
+  listar.innerHTML = '';
+
+  listaAmigos.forEach(function (amigo, index){ // Iteração para cada Amigo na lista.
+      let elemento = document.createElement('li');
+      elemento.textContent = `${index+1}. `+ amigo;
+      listar.appendChild(elemento);
+  });
+```
+
 ### 🎲 Gerar Sorteio
 ```javascript
 function gerarSorteio(){
@@ -105,7 +120,8 @@ function gerarSorteio(){
     listaNaoSorteados.splice(indice, 1);
     listaSorteados.push(sorteado);
     return sorteado;
-} 
+}
+
 ```
 
 ### 📽 Demonstração em Vídeo:
@@ -137,5 +153,3 @@ https://github.com/user-attachments/assets/b23a5f4f-b03b-4985-92c3-e482523907bb
 
 ## 📜 Licença
 Este projeto está licenciado sob a **licença MIT**. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
-```
-
