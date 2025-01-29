@@ -15,7 +15,7 @@
 ## 📌Índice
 1. [📖Descrição do Projeto](#descrição-do-projeto)
 2. [🚀Status do Projeto](#status-do-projeto)
-3. [⚡Funcionalidades e Demonstração da Aplicação](#funcionalidades-e-demonstração-da-aplicação)
+3. [⚡Funcionalidades Principais](#funcionalidades-principais)
 4. [🧩Funcionalidades Adicionais](#funcionalidades-adicionais)
 5. [🛠Tecnologias Utilizadas](#tecnologias-utilizadas)
 6. [🤝Pessoas Contribuidoras](#pessoas-contribuidoras)
@@ -49,7 +49,9 @@ A ideia é fazer com que o participante teste a sua a lógica de programação -
 
 ---
 
-## ⚡Funcionalidades e Demonstração da Aplicação
+## ⚡Funcionalidades Principais
+
+Aqui, poderá observar os desafios requisitados pelo challenge o que com certeza posso dizer: — Foi uma ótima experiência. Deixarei os códigos a seguir
 
 ### ➕Adicionar Amigo
 ```javascript
