@@ -13,9 +13,9 @@
 ---
 
 ## 📌 Índice
-1. [📖 Descrição do Projeto](#descrição-do-projeto)
+1. [📖 Descrição do Projeto](#descricao-do-projeto)
 2. [🚀 Status do Projeto](#status-do-projeto)
-3. [⚡ Funcionalidades e Demonstração da Aplicação](#funcionalidades-e-demonstração-da-aplicação)
+3. [⚡ Funcionalidades e Demonstração da Aplicação](#funcionalidades-e-demonstracao-da-aplicacao)
 4. [🛠 Tecnologias Utilizadas](#tecnologias-utilizadas)
 5. [🤝 Pessoas Contribuidoras](#pessoas-contribuidoras)
 6. [👨‍💻 Pessoas Desenvolvedoras do Projeto](#pessoas-desenvolvedoras-do-projeto)
