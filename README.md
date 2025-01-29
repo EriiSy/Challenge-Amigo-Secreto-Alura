@@ -3,7 +3,7 @@
 
 ![capa-git](https://github.com/user-attachments/assets/1744c382-0b1d-46f2-a3e5-f51289d58e4f)
 
-## 🏅 Badges
+## 🏅Badges
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6%2B-yellow)
 ![HTML](https://img.shields.io/badge/HTML-5-orange)
 ![CSS](https://img.shields.io/badge/CSS-3-blue)
@@ -12,18 +12,19 @@
 
 ---
 
-## 📌 Índice
-1. [📖 Descrição do Projeto](#descricao-do-projeto)
-2. [🚀 Status do Projeto](#status-do-projeto)
-3. [⚡ Funcionalidades e Demonstração da Aplicação](#funcionalidades-e-demonstracao-da-aplicacao)
-4. [🛠 Tecnologias Utilizadas](#tecnologias-utilizadas)
-5. [🤝 Pessoas Contribuidoras](#pessoas-contribuidoras)
-6. [👨‍💻 Pessoas Desenvolvedoras do Projeto](#pessoas-desenvolvedoras-do-projeto)
-7. [📜 Licença](#licença)
+## 📌Índice
+1. [📖Descrição do Projeto](#descricao-do-projeto)
+2. [🚀Status do Projeto](#status-do-projeto)
+3. [⚡Funcionalidades e Demonstração da Aplicação](#funcionalidades-e-demonstracao-da-aplicacao)
+4. [🧩Funcionalidades Adicionais](#funcionalidades-adicionais)
+5. [🛠Tecnologias Utilizadas](#tecnologias-utilizadas)
+6. [🤝Pessoas Contribuidoras](#pessoas-contribuidoras)
+7. [👨‍💻Pessoas Desenvolvedoras do Projeto](#pessoas-desenvolvedoras-do-projeto)
+8. [📜Licença](#licenca)
 
 ---
 
-## 📖 Descrição do Projeto
+## 📖Descrição do Projeto
 O **Amigo Secreto** é um **Challenge** gerenciado pela +ONE com o prazo de entrega entre **15/01/25 a 18/03/25**  utilizando-se de **HTML, CSS e JavaScript**.
 A ideia é fazer com que o participante teste a sua a lógica de programação - parte esta fundamental na área supracitada - aprendida durante a jornada +ONE 2025.
 
@@ -40,16 +41,16 @@ A ideia é fazer com que o participante teste a sua a lógica de programação -
 
 ---
 
-## 🚀 Status do Projeto
+## 🚀Status do Projeto
 
 **✅ Finalizado - Versão 1.0**  
 🔜 Atualizações futuras podem vir com o avanço no aprendizado na linguagem.
 
 ---
 
-## ⚡ Funcionalidades e Demonstração da Aplicação
+## ⚡Funcionalidades e Demonstração da Aplicação
 
-### ➕ Adicionar Amigo
+### ➕Adicionar Amigo
 ```javascript
 function adicionarAmigo(){
     let adicionar = document.querySelector('input').value;
@@ -81,7 +82,7 @@ function adicionarAmigo(){
 }
 ```
 
-### 📝 Exibir Lista de Amigos
+### 📝Exibir Lista de Amigos
  
 ```javascript
  function exibirLista(){
@@ -96,7 +97,7 @@ function adicionarAmigo(){
   });
 ```
 
-### 🎲 Gerar Sorteio
+### 🎲Gerar Sorteio
 Essa foi de longe um dos maiores desafios que tive pois queria aplicar um sorteio cujo o sorteado não pudesse sortear ele próprio e isso...custou uns dias, mas valeu a pena hehe.
 ```javascript
 function gerarSorteio(){
@@ -124,7 +125,8 @@ function gerarSorteio(){
 }
 
 ```
-## Funcionalidades Adicionais
+---
+## 🧩Funcionalidades Adicionais
 
 ### Funções
 
@@ -150,12 +152,12 @@ function gerarSorteio(){
 8. **Todos os Amigos Sorteados** 🎉
 
 
-### 📽 Demonstração em Vídeo:
+### 📽Demonstração em Vídeo:
 https://github.com/user-attachments/assets/b23a5f4f-b03b-4985-92c3-e482523907bb
 
 ---
 
-## 🛠 Tecnologias Utilizadas
+## 🛠Tecnologias Utilizadas
 - 💬 **Discord** (Alura+ONE) - Dicas e inspirações para o challenge.
 - 🤖 **Copilot Pro** (GitHub) - Retira dúvidas de trechos de códigos.
 - 🏫 **Alura** - Assistente das aulas de lógica programação.
@@ -167,15 +169,15 @@ https://github.com/user-attachments/assets/b23a5f4f-b03b-4985-92c3-e482523907bb
 
 ---
 
-## 🤝 Pessoas Contribuidoras
+## 🤝Pessoas Contribuidoras
 - **Alura**: Disponibilizou o HTML e CSS inicial para o desafio.
 
 ---
 
-## 👨‍💻 Pessoas Desenvolvedoras do Projeto
+## 👨‍💻Pessoas Desenvolvedoras do Projeto
 - **Erick** (Eu). 👾
 
 ---
 
-## 📜 Licença
+## 📜Licença
 Este projeto está licenciado sob a **licença MIT**. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
